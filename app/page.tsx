@@ -47,6 +47,8 @@ export default function Home() {
         <button className={buttonStyles} onClick={copyToClipBoard}>{copyText}</button>
       </div>
       <div>{password}</div>
+
+      <button onClick={counter.increment} className={buttonStyles}>{counter.count}</button>
     </main>
   );
 }
