@@ -16,9 +16,10 @@ export default function Input({ passwordSize, setPasswordSize }: InputProps) {
           type="number" 
           id="passwordSize" 
           min={1} 
-          className={buttonStyles}
+          className={`w-24 ${buttonStyles}`}
           value={passwordSize}
           onChange={(ev) => setPasswordSize(Number(ev.target.value))}
+          maxLength={5}
         />
         <button onClick={() => setPasswordSize(passwordSize + 1)} className={buttonStyles}>+ </button>
       </div>

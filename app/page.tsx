@@ -45,16 +45,16 @@ export default function Home() {
     <main className="flex justify-center flex-col items-center gap-8 bg-zinc-800 text-white h-lvh w-full">
       <h1 className="text-3xl">Gerador de senhas</h1>
       <div className="flex flex-col items-center">
-        <div className={`flex items-center gap-2 ${showInput ? `pb-4` : ``}`}>
+        <div className={`flex items-center gap-2 py-2 rounded-xl px-4  ${showInput ? `mb-4` : ``  } ${buttonStyles}`}>
           <input 
-            className="w-4 h-4"
+            className="w-4 h-4 cursor-pointer"
             type="checkbox" 
             id="showInput" 
             value={showInput.toString()} 
             onChange={() => 
             setShowInput(currentState => !currentState)} 
           />
-          <label htmlFor="showInput">Customizar tamanho</label>
+          <label htmlFor="showInput" className="cursor-pointer">Customizar tamanho</label>
         </div>
         {showInput ? (
           <div>
