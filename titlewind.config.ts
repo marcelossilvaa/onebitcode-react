@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   content: [
@@ -14,8 +15,15 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
-    
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.buttonStyless': {
+          '@apply bg-zinc-900 p-4 rounded-lg hover:bg-zinc-800 transition-colors duration-500 shadow-xl active:focus:duration-200 active:focus:bg-zinc-600': {},
+        },
+      });
+    }),
+  ],
 };
-export default config;
+export default config; 

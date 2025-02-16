@@ -14,8 +14,6 @@ const array = [
 },
 ]
 
-export const buttonStyles = "bg-zinc-900 p-4 rounded-lg hover:bg-zinc-800 transition-colors duration-500 shadow-xl active:focus:duration-200 active:focus:bg-zinc-600"
-
 export default function Home() {
   const [password, setPassowrd] = useState('')
   const [copyText, setCopyText] = useState('Copiar')
@@ -45,7 +43,7 @@ export default function Home() {
     <main className="flex justify-center flex-col items-center gap-8 bg-zinc-800 text-white h-lvh w-full">
       <h1 className="text-3xl">Gerador de senhas</h1>
       <div className="flex flex-col items-center">
-        <div className={`flex items-center gap-2 py-2 rounded-xl px-4  ${showInput ? `mb-4` : ``  } ${buttonStyles}`}>
+        <div className={` buttonStyles flex items-center gap-2 !py-2 rounded-xl px-4  ${showInput ? `mb-4` : ``  }`}>
           <input 
             className="w-4 h-4 cursor-pointer"
             type="checkbox" 
@@ -65,10 +63,10 @@ export default function Home() {
       </div>
       <div className="flex gap-8 ">
         <div>
-          <button onClick={generate} className={buttonStyles}>Gerar senha de {showInput ? passwordSize : 8} caracteres! </button>
+          <button onClick={generate} className="buttonStyles">Gerar senha de {showInput ? passwordSize : 8} caracteres! </button>
         </div>
         
-        <button className={buttonStyles} onClick={copyToClipBoard}>{copyText}</button>
+        <button className="buttonStyles" onClick={copyToClipBoard}>{copyText}</button>
       </div>
       <div>{password}</div>
       <hr className="h-[1px] w-[70%]"/>
