@@ -1,5 +1,23 @@
+import { useState } from "react"
 
 export default function Game() {
+  const [title, setTitle] = useState('')
+  const [cover, setCover] = useState('')
+
+  const addGame = ({title, cover}) => {
+    const id  = Math.floor(Math.random() * 1000000)
+    const game = {id, title, cover}
+    setGames(state => [...state, game])
+  }
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault()
+    addGame({title, cover})
+    setTitle('')
+    setCover('')
+  }
+
+  
   return (
     <div className="flex justify-center items-center h-lvh bg-zinc-800 text-white">
       <div>
