@@ -1,3 +1,4 @@
+'use client'
 import { ChangeEvent, FormEvent, useState } from "react";
 
 interface GameCardProps {
@@ -8,7 +9,7 @@ interface GameCardProps {
 
 export default function GameCard({title, cover, onRemove}: GameCardProps) {
   return(
-    <div className="mb-4 flex gap-5 bg-neutral-700 p-4 rounded-2xl">
+    <div className="mb-4 flex gap-5 bg-neutral-700 p-4 rounded-2xl w-[48%]">
       <img src={cover} alt={title} className="w-32 h-32 object-cover rounded-2xl" />
       <div className="flex flex-col gap-4 justify-around">
         <h2>{title}</h2>
@@ -44,17 +45,17 @@ export function NewGameForm({ addGame }: NewGameForm) {
   }
 
   return (
-    <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
+    <form className="flex items-end gap-[4%]" onSubmit={handleSubmit}>
       <NewGameInput type="title" label="Título" value={title} onChange={handleTitleChange} />
       <NewGameInput type="cover" label="Capa" value={cover} onChange={handleCoverChange} />
-      <button type="submit" className="buttonStyles">Adicionar à biblioteca</button>
+      <button type="submit" className="buttonStyles w-[32%]">Adicionar à biblioteca</button>
     </form>
   )
 }
 
 function NewGameInput ({type, label, value, onChange}: {type:string ,label:string, value: string; onChange: (e: ChangeEvent<HTMLInputElement>) => void }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 w-[32%]">
       <label htmlFor={type}>{label}:</label>
       <input 
         type="text" 
