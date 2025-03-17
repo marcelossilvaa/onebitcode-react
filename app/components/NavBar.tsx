@@ -5,6 +5,7 @@ export default function NavBar() {
     <nav className="flex justify-center items-center gap-4 bg-zinc-900 h-10">
       <Link href="/" className="text-white">Home</Link>
       <Link href="/game" className="text-white">Game</Link>
+      <Link href="/feed" className="text-white">Feed</Link>
     </nav>
   );
 }

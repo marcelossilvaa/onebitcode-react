@@ -1,12 +1,12 @@
 'use client';
-import GameCard, { NewGameForm } from '../components/NewGameForm';
+import GameCard, { NewGameForm } from '../components/game/NewGameForm';
 import useGameCollection from '../hooks/useGameCollection';
 
 export default function Game() {
   const { games, addGame, removeGame } = useGameCollection();
 
   return (
-    <div className="flex justify-center items-center bg-zinc-800 text-white h-dvh">
+    <div className="flex justify-center items-center text-white">
       <div className="m-10">
         <h1 className="text-2xl font-bold mb-2">Biblioteca de Jogos</h1>
         <NewGameForm addGame={addGame} />

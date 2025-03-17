@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-import Contador from "./components/Contador";
+import Contador from "./components/senhas/Contador";
 import Input from "./components/Input";
 
 const array = [
@@ -40,7 +40,7 @@ export default function Home() {
 
 
   return (
-    <main className="flex justify-center flex-col items-center gap-8 bg-zinc-800 text-white h-lvh w-full">
+    <main className="flex justify-center flex-col items-center gap-8 text-white w-full mt-20">
       <h1 className="text-3xl">Gerador de senhas</h1>
       <div className="flex flex-col items-center">
         <div className={` buttonStyles flex items-center gap-2 !py-2 rounded-xl px-4  ${showInput ? `mb-4` : ``  }`}>

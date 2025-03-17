@@ -1,4 +1,4 @@
-import useCounter from "../hooks/useCounter"
+import useCounter from "../../hooks/useCounter"
 
 export default function Contador(){
   const counter = useCounter()
