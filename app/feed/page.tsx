@@ -26,15 +26,15 @@ export default function Feed(){
         <form className="flex flex-col gap-4 w-full max-w-3xl" onSubmit={handleSubmit}>
           <div className="flex flex-col">
             <label htmlFor="name">Nome</label>
-            <input type="text" id="name" className="text-black p-4" value={formData.name} onChange={handleChange} />
+            <input type="text" id="name" className="bg-zinc-900  p-4" value={formData.name} onChange={handleChange} />
           </div>
           <div className="flex flex-col">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" className="text-black p-4" value={formData.email} onChange={handleChange} />
+            <input type="email" id="email" className="bg-zinc-900  p-4" value={formData.email} onChange={handleChange} />
           </div>
           <div className="flex flex-col">
             <label htmlFor="comment">Comentário</label>
-            <textarea id="comment" className="text-black  p-4" rows={6} cols={30} value={formData.comment} onChange={handleChange}></textarea>
+            <textarea id="comment" className="bg-zinc-900   p-4" rows={6} cols={30} value={formData.comment} onChange={handleChange}></textarea>
           </div>
           <button className="buttonStyles" type="submit">Enviar</button>
         </form>
