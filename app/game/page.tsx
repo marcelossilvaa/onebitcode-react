@@ -4,7 +4,7 @@ import useGameCollection from '../hooks/useGameCollection';
 
 export default function Game() {
   const { games, addGame, removeGame } = useGameCollection();
-  console.log("📌 ~ Game ~ games:", games)
+  console.log('📌 ~ Game ~ games:', games);
 
   return (
     <div className="flex justify-center items-center text-white">
