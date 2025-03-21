@@ -35,7 +35,7 @@ export default function Feed() {
   }, [comments]);
 
   return (
-    <main className="m-10">
+    <main className="m-10 max-w-3xl mx-auto px-5">
       <div className=" flex flex-col gap-8 items-center justify-center w-full">
         <h3 className="text-2xl">Seção de Comentários</h3>
         <form className="flex flex-col gap-4 w-full max-w-3xl" onSubmit={handleSubmit}>
@@ -85,7 +85,7 @@ export default function Feed() {
           </button>
         </form>
       </div>
-      <div className="p-8">
+      <div className="p-8 ">
         {comments.length > 0 && (
           <>
             <h3 className="text-2xl mb-5">Comentários Recentes</h3>
