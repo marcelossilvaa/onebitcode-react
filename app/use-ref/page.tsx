@@ -14,9 +14,13 @@ export default function UseRef() {
         `);
     };
 
-    const inputRef = useRef(null);
+    const inputRef = useRef(null as HTMLInputElement | null);
     const handleClick = () => {
         console.log(inputRef.current);
+        if (inputRef.current) {
+            inputRef.current.focus();
+            inputRef.current.style.backgroundColor = "#000";
+        }
     };
 
     return (
