@@ -12,6 +12,9 @@ export default function NavBar() {
       <Link href="/feed" className="text-white">
         Feed
       </Link>
+      <Link href="/use-ref" className="text-white">
+        Use Ref
+      </Link>
     </nav>
   );
 }
