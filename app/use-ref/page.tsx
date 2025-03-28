@@ -24,9 +24,9 @@ export default function UseRef() {
     };
 
     return (
-        <div className="m-auto w-full flex justify-center flex-col my-10 gap-4 pl-5">
+        <div className="m-auto w-full flex justify-center flex-col my-10 gap-4 pl-5 max-w-[650px]">
             <h2 className="font-semibold text-xl">Conhecendo o useRef</h2>
-            <hr className="h-1 w-72" />
+            <hr className="h-1 w-full" />
             <div className="flex flex-col gap-2 text-lg">
                 <p>Variável: {varible}</p>
                 <p>State: {state}</p>
@@ -46,7 +46,7 @@ export default function UseRef() {
                     Aumentar Ref
                 </button>
             </div>
-            <hr className="h-1 w-72" />
+            <hr className="h-1 w-full" />
             <div>
                 <button className="buttonStyles !px-24" onClick={showValues}>
                     Exibir Valores
