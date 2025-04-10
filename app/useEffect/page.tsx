@@ -1,10 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-
-type Pokemon = {
-    name: string;
-    url: string;
-};
+import { PokemonData, Pokemon } from "../types/pokemonTypes";
 
 async function fetchPokemon() {
     const response = await fetch("https://pokeapi.co/api/v2/pokemon");
@@ -22,28 +18,22 @@ console.log("Pokemons >>", fetchPokemon());
 export default function pageUseEffect() {
     const [pokemon, setPokemon] = useState<Pokemon[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-    const [namePokemon, setNamePokemon] = useState("");
-    const [imagePokemon, setImagePokemon] = useState("");
+    const [dataPokemon, setDataPokemon] = useState<PokemonData | null>(null);
+
     useEffect(() => {
         fetchPokemon().then((results) => {
             setPokemon(results);
             setLoading(false);
-            console.log("Pokemons >>", results);
+            console.log("Pokemons:", results);
         });
     }, []);
 
     const handleClick = (url: string) => {
         fetchDataPokemon(url).then((results) => {
-            console.log("Data Pokemon >>", results);
-            setNamePokemon(results.name);
-            setImagePokemon(results.sprites.front_default);
-            console.log("Nome do Pokémon >>", namePokemon);
+            setDataPokemon(results);
+            console.log("Data Pokemon:", dataPokemon?.name);
         });
     };
-
-    useEffect(() => {
-        console.log("Nome do Pokemon Escolhido >>", namePokemon);
-    }, [namePokemon]);
 
     return (
         <div className="m-auto w-full flex justify-center flex-col my-10 gap-4 pl-5 max-w-[650px]">
@@ -51,14 +41,19 @@ export default function pageUseEffect() {
             <hr className="h-1 w-full" />
             <h2 className="text-xl font-semibold">Pokemon</h2>
             <hr className="h-1 w-full" />
-            {namePokemon && (
+            {dataPokemon && (
                 <div className="text-xl text-center pb-8 flex items-center justify-center flex-col">
                     <img
-                        src={imagePokemon}
-                        alt={namePokemon}
+                        src={dataPokemon?.sprites.front_default}
+                        alt={dataPokemon?.name}
                         className="w-[150px] mb-[-20px]"
                     />
-                    <p>Nome do Pokémon Escolhido: {namePokemon}</p>
+                    <p>
+                        Nome:{" "}
+                        <span className="capitalize">{dataPokemon?.name}</span>
+                    </p>
+                    <p>Altura: {(dataPokemon?.height / 10).toFixed(1)} m</p>
+                    <p>Peso: {(dataPokemon?.weight / 10).toFixed(1)} Kg</p>
                 </div>
             )}
 
