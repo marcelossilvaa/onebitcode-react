@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { PokemonData, Pokemon } from "../types/pokemonTypes";
+import { useGameContext } from "../hooks/GameContext";
+import { GameProvider } from "../hooks/GameContext";
 
 async function fetchPokemon() {
     const response = await fetch("https://pokeapi.co/api/v2/pokemon");
@@ -16,9 +18,22 @@ async function fetchDataPokemon(url: string) {
 
 console.log("Pokemons >>", fetchPokemon());
 export default function pageUseEffect() {
-    const [pokemon, setPokemon] = useState<Pokemon[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [dataPokemon, setDataPokemon] = useState<PokemonData | null>(null);
+    return (
+        <GameProvider>
+            <PageContent />
+        </GameProvider>
+    );
+}
+
+function PageContent() {
+    const {
+        pokemon,
+        loading,
+        dataPokemon,
+        setPokemon,
+        setLoading,
+        setDataPokemon,
+    } = useGameContext();
 
     useEffect(() => {
         fetchPokemon().then((results) => {
